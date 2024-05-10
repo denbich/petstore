@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') @lang('Strona główna') @endsection
+@section('title') @lang('Błąd :error - Błąd serwera', ['error' => 500]) @endsection
 
 @section('content')
 
@@ -39,8 +39,8 @@
   </nav>
 
   <section class="mt-5">
-        <h1 class="text-center">@lang('Witamy w bazie zwierzaków!')</h3>
+        <h1 class="text-center">@lang('Błąd :error - Błąd serwera', ['error' => 500])</h3>
+        <a href="{{ route('main') }}" class="btn btn-primary text-center">@lang('Powrót do strony głównej')</a>
   </section>
 
 @endsection
-

@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PetController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome')->name('main');
+Route::redirect('/home', '/pet');
+
+Route::middleware(['auth'])->group(function(){
+    Route::resource('/pet', PetController::class)->except(['create',  'show']);
 });
